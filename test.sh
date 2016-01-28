@@ -17,9 +17,14 @@ expect *enter*
 # send the responce, note the \n at the end!
 send god\n
 
+# The script then enters an interactive session which we need to exit.
+# The magic \x04 sequence accomplishes this by sending <control>-d
+expect >>>
+send \x04
+
 # wait until the session ends (end of file)
 expect eof
 EOF
 
 # and now we can do more stuff in bash!
-echo "fun things"
+echo "done with the script"
